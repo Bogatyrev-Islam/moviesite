@@ -1,0 +1,16 @@
+button{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50px;
+  background: none;
+}
+button:focus{
+  outline: none; 
+}
+.time-ago{
+    font-size: 14px;
+    color: rgb(255, 255, 255, 0.5);
+}
