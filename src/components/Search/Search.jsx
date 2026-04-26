@@ -4,8 +4,7 @@ import SpeechRecognition, {
 import History, { addToHistory } from "../History/History";
 import MediaCatalog from "../MediaCatalog";
 import { useState, useEffect } from "react";
-import { IconMicrophone } from "../icons/IconMicrophone";
-import { IconFilter } from "../icons/iconFilter";
+import { RiMic2Line, RiMic2Fill, RiEqualizer2Line } from "@remixicon/react";
 import "./Search.css";
 
 export default function Search({ onSearch, debouncedQuery, onTotalChange}) {
@@ -57,21 +56,23 @@ export default function Search({ onSearch, debouncedQuery, onTotalChange}) {
           placeholder={listening ? "Я слушаю" : "Введите название или описание"}
         />
         <button onClick={toggleListen} title="голосовой ввод">
-          {listening ? <IconMicrophone isActive={true} /> : <IconMicrophone />}
+          {!listening ? <RiMic2Line size={20} color="rgba(255, 255, 255, 0.50)"/> : <RiMic2Fill size={20}/>}
         </button>
       </div>
       <div className="search-filters">
-        <button><IconFilter/> фильтры</button>
+        <button><RiEqualizer2Line size={20}/> фильтры</button>
         <ul className="filters-elems">
+          <li>количество: 50 x</li>
           <li>сериалы х</li>
-          <li>боевик х</li>
+          <li>триллер х</li>
           <li>драма х</li>
+          <li>комедия х</li>
           <li>2020-2025 х</li>
         </ul>
       </div>
       <ul className="search-result">
         {showSearchResults ? (
-          <MediaCatalog name={debouncedQuery} total={onTotalChange}>
+          <MediaCatalog name={debouncedQuery} total={onTotalChange}> 
             {({ data, loading, error }) => {
               if (loading && !data.length) return (
                 <ul className="loading-result">

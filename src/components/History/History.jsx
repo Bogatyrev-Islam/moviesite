@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { IconDelete } from "../icons/iconDelete";
+import { RiCloseLine } from "@remixicon/react";
 import TimeAgo from "../TimeAgo";
 import "./History.css";
 
@@ -33,7 +33,7 @@ export const clearHistory = () => {
 };
 
 function History() {
-  const [history, setHistory] = useState(null);
+  const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ function History() {
       {history.map((film) => (
         <li className="movie" key={film.id || film._id || Math.random()}>
              <button onClick={() => handleRemoveFilm(film.id)}>
-              <IconDelete />
+          <RiCloseLine size={20}/>
           </button>
           <div className="movie-poster-box">
             <img className="movie-poster" src={film.poster} alt={film.name} />
