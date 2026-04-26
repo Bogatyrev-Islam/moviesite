@@ -2,9 +2,10 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import History, { addToHistory } from "../History/History";
+import SearchFilters from "../SearchFilters";
 import MediaCatalog from "../MediaCatalog";
 import { useState, useEffect } from "react";
-import { RiMic2Line, RiMic2Fill, RiEqualizer2Line } from "@remixicon/react";
+import { RiMic2Line, RiMic2Fill } from "@remixicon/react";
 import "./Search.css";
 
 export default function Search({ onSearch, debouncedQuery, onTotalChange}) {
@@ -59,35 +60,56 @@ export default function Search({ onSearch, debouncedQuery, onTotalChange}) {
           {!listening ? <RiMic2Line size={20} color="rgba(255, 255, 255, 0.50)"/> : <RiMic2Fill size={20}/>}
         </button>
       </div>
-      <div className="search-filters">
-        <button><RiEqualizer2Line size={20}/> фильтры</button>
-        <ul className="filters-elems">
-          <li>количество: 50 x</li>
-          <li>сериалы х</li>
-          <li>триллер х</li>
-          <li>драма х</li>
-          <li>комедия х</li>
-          <li>2020-2025 х</li>
-        </ul>
-      </div>
+      {/* фильтры поиска */}
+      <SearchFilters/>
       <ul className="search-result">
         {showSearchResults ? (
           <MediaCatalog name={debouncedQuery} total={onTotalChange}> 
             {({ data, loading, error }) => {
               if (loading && !data.length) return (
                 <ul className="loading-result">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
+                  <li className="load-movie">
+                    <div className="load-poster"></div>
+                    <div className="load-info">
+                      <div className="load-name"></div>
+                      <div className="load-details"></div>
+                    </div>
+                  </li>
+                  <li className="load-movie">
+                    <div className="load-poster"></div>
+                    <div className="load-info">
+                      <div className="load-name"></div>
+                      <div className="load-details"></div>
+                    </div>
+                  </li>
+                  <li className="load-movie">
+                    <div className="load-poster"></div>
+                    <div className="load-info">
+                      <div className="load-name"></div>
+                      <div className="load-details"></div>
+                    </div>
+                  </li>
+                  <li className="load-movie">
+                    <div className="load-poster"></div>
+                    <div className="load-info">
+                      <div className="load-name"></div>
+                      <div className="load-details"></div>
+                    </div>
+                  </li>
+                  <li className="load-movie">
+                    <div className="load-poster"></div>
+                    <div className="load-info">
+                      <div className="load-name"></div>
+                      <div className="load-details"></div>
+                    </div>
+                  </li>
                 </ul>
               )
               if (error && !data.length)
                 return <div>Ошибка: {error.message}</div>;
 
               return data.map((film) => (
+                <a href={film.iframe_url} style={{textDecoration: 'none'}}>
                 <li
                   className="movie"
                   key={film.id || film._id || Math.random()}
@@ -113,6 +135,7 @@ export default function Search({ onSearch, debouncedQuery, onTotalChange}) {
                     </small>
                   </div>
                 </li>
+                </a>
               ));
             }}
           </MediaCatalog>

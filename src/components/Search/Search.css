@@ -77,7 +77,7 @@
 .filters-elems > li{
   background-color: #232326;
   font-size: 14px;
-  padding: 0px 5px;
+  padding: 1px 5px;
   border-radius: 30px;
   cursor: pointer;
   flex-shrink: 0;
@@ -164,16 +164,47 @@ mark {
   font-size: 14px;
 }
 
-@keyframes loading-shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
 
-.loading-result li {
+.loading-result{}
+
+.load-movie{
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.load-movie .load-poster{
+  min-width: 50px;
+  max-width: 50px;
   height: 50px;
-  margin: 5px 0;
+  border-radius: 15px;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.10) 50%, rgba(255, 255, 255, 0.05) 75%);
   background-size: 200% 100%;
   animation: loading-shimmer 1.5s infinite;
-  list-style: none;
+}
+.load-movie .load-info{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+.load-movie .load-name{
+  border-radius: 8px;
+  height: 16px;
+  width: 60%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.10) 50%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s infinite;
+}
+.load-movie .load-details{
+  border-radius: 8px;
+  height: 14px;
+  width: 80%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.10) 50%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s infinite;
+}
+@keyframes loading-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
