@@ -1,3 +1,6 @@
+.movie-info{
+  flex: 1;
+}
 button{
   cursor: pointer;
   display: flex;

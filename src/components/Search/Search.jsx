@@ -109,7 +109,6 @@ export default function Search({ onSearch, debouncedQuery, onTotalChange}) {
                 return <div>Ошибка: {error.message}</div>;
 
               return data.map((film) => (
-                <a href={film.iframe_url} style={{textDecoration: 'none'}}>
                 <li
                   className="movie"
                   key={film.id || film._id || Math.random()}
@@ -135,7 +134,6 @@ export default function Search({ onSearch, debouncedQuery, onTotalChange}) {
                     </small>
                   </div>
                 </li>
-                </a>
               ));
             }}
           </MediaCatalog>

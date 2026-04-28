@@ -22,7 +22,7 @@ function App() {
         debouncedQuery={debouncedQuery}
         onTotalChange={setTotal}
       />
-      <p>{total}</p>
+      {/* <p>{total}</p> */}
       {/* <Comments/> */}
     </>
   );

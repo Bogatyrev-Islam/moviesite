@@ -75,6 +75,8 @@
   gap: 5px;
 }
 .filters-elems > li{
+  display: flex;
+  align-items: center;
   background-color: #232326;
   font-size: 14px;
   padding: 1px 5px;
@@ -87,6 +89,7 @@
 }
 @media (max-width: 700px) {
   .search{
+    margin: 5% 0%;
     width: 95%;
   }
 }

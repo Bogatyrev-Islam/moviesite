@@ -1,4 +1,4 @@
-import { RiEqualizer2Line } from "@remixicon/react";
+import { RiEqualizer2Line, RiCloseLine } from "@remixicon/react";
 
 function SearchFilters(params) {
   return (
@@ -7,12 +7,12 @@ function SearchFilters(params) {
         <RiEqualizer2Line size={20} /> фильтры
       </button>
       <ul className="filters-elems">
-        <li>количество: 50 x</li>
-        <li>сериалы х</li>
-        <li>триллер х</li>
-        <li>драма х</li>
-        <li>комедия х</li>
-        <li>2020-2025 х</li>
+        <li>количество: 50 <RiCloseLine size={15}/></li>
+        <li>сериалы <RiCloseLine size={15}/></li>
+        <li>триллер <RiCloseLine size={15}/></li>
+        <li>драма <RiCloseLine size={15}/></li>
+        <li>комедия <RiCloseLine size={15}/></li>
+        <li>2020-2025 <RiCloseLine size={15}/></li>
       </ul>
     </div>
   );

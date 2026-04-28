@@ -69,11 +69,7 @@ function History() {
     <>
       {history ? (
         history.map((film) => (
-          <a href={film.iframe_url} style={{textDecoration: 'none'}}>
           <li className="movie" key={film.id || film._id || Math.random()}>
-            <button onClick={() => handleRemoveFilm(film.id)}>
-              <RiCloseLine size={20} />
-            </button>
             <div className="movie-poster-box">
               <img className="movie-poster" src={film.poster} alt={film.name} />
             </div>
@@ -83,8 +79,10 @@ function History() {
                 <TimeAgo date={film.watched_at} />
               </small>
             </div>
+            <button onClick={() => handleRemoveFilm(film.id)}>
+              <RiCloseLine size={20} color="rgba(255, 255, 255, 0.50)"/>
+            </button>
           </li>
-          </a>
         ))
       ) : (
         <div></div>
